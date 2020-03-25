@@ -41,6 +41,16 @@ class UserTest < ActiveSupport::TestCase
 
     assert_includes(@subject.errors[:password], "can't be blank")
   end
+
+  test "should confirm the user" do
+    user = create(:user)
+
+    assert_not(user.confirmed?)
+
+    user.confirm!
+
+    assert(user.confirmed?)
+  end
 end
 
 # rake test test/models/user_test.rb
