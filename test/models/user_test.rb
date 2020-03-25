@@ -12,6 +12,13 @@ class UserTest < ActiveSupport::TestCase
     assert_includes(@subject.errors[:email], "can't be blank")
   end
 
+  test "email should be a valid email" do
+    @subject.email = "invalid"
+    @subject.valid?
+
+    assert_includes(@subject.errors[:email], "is not an email")
+  end  
+
   # test "the truth" do
   #   assert true
   # end
