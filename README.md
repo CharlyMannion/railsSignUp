@@ -1,4 +1,7 @@
-# README
+# Rails Registration
+
+An app to learn how to create a rails app that allows a user to sign up and log in.
+___________________________________________________
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
