@@ -17,11 +17,30 @@ class UserTest < ActiveSupport::TestCase
     @subject.valid?
 
     assert_includes(@subject.errors[:email], "is not an email")
-  end  
+  end
 
-  # test "the truth" do
-  #   assert true
-  # end
+  test "email should be unique" do
+    create(:user, email: "email@domain.com")
+
+    @subject.email = "email@domain.com"
+    @subject.valid?
+
+    assert_includes(@subject.errors[:email], "has already been taken")
+  end
+
+  test "user should be authentic able" do
+    user = create(:user, password: "password")
+
+    assert_not(user.authenticate("qwerty"))
+
+    assert(user.authenticate("password"))
+  end
+
+  test "password should be required" do
+    @subject.valid?
+
+    assert_includes(@subject.errors[:password], "can't be blank")
+  end
 end
 
 # rake test test/models/user_test.rb
