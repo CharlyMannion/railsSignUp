@@ -5,7 +5,7 @@ FactoryBot.define do
     # email Faker::Internet.email
     # email Faker::Internet.safe_email
     # password Faker::Internet.password
-    email { "jon.cole@example.net" }
+    email { "sherlyn@example.org" }
     password { "DdYaSjH8xW9wGhD" }
   end
 end

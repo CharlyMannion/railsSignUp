@@ -31,3 +31,11 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include FactoryBot::Syntax::Methods
 end
+
+# RSpec.configure do |config|
+#   config.include FactoryBot::Syntax::Methods
+#
+#   config.before(:suite) do
+#     FactoryBot.find_definitions
+#   end
+# end
