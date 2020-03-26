@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def confirmed?
     !! confirmed_at?
   end
+
+  def role?(role)
+    roles.any? { |r| r.name.underscore.to_sym == role }  
+  end
 end
