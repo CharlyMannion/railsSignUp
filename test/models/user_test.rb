@@ -6,12 +6,6 @@ class UserTest < ActiveSupport::TestCase
     @subject = User.new
   end
 
-  # test "email should be required" do
-  #   @subject.valid?
-  #
-  #   assert_includes(@subject.errors[:email], "can't be blank")
-  # end
-
   should validate_presence_of(:email)
 
   test "email should be a valid email" do
@@ -38,13 +32,7 @@ class UserTest < ActiveSupport::TestCase
     assert(user.authenticate("password"))
   end
 
-  # test "password should be required" do
-  #   @subject.valid?
-  #
-  #   assert_includes(@subject.errors[:password], "can't be blank")
-  # end
-
-  should validate_presence_of(:password)  
+  should validate_presence_of(:password)
 
   test "should confirm the user" do
     user = create(:user)
@@ -55,6 +43,9 @@ class UserTest < ActiveSupport::TestCase
 
     assert(user.confirmed?)
   end
+
+  should have_many(:assignments)
+  should have_many(:roles).through(:assignments)
 end
 
 # rake test test/models/user_test.rb
