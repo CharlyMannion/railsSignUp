@@ -1,2 +1,7 @@
 class RegisterForm < Reform::Form
-end 
+  property :email
+  property :password
+
+  validates :email, presence: true
+  validates :password, presence: true
+end
