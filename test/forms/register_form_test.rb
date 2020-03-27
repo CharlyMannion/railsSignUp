@@ -17,6 +17,12 @@ class RegisterFormTest < ActiveSupport::TestCase
 
     assert_includes(@form.errors[:password], "can't be blank")
   end
+
+  test "email should be a valid email address" do
+    @form.validate(email: "invalid")
+
+    assert_includes(@form.errors[:email], "is not an email")
+  end
 end
 
 # rails test test/forms/register_form_test.rb
