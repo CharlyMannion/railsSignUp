@@ -23,6 +23,17 @@ class RegisterFormTest < ActiveSupport::TestCase
 
     assert_includes(@form.errors[:email], "is not an email")
   end
+
+  test "email should be unique" do
+    # create user in the database
+    create(:user, email: "name@domain.com")
+
+    # pass the same email in to the form
+    @form.validate(email: "name@domain.com")
+
+    # assert that the correct error has been set
+    assert_includes(@form.errors[:email], "has already been taken")
+  end
 end
 
 # rails test test/forms/register_form_test.rb
