@@ -34,6 +34,14 @@ class RegisterFormTest < ActiveSupport::TestCase
     # assert that the correct error has been set
     assert_includes(@form.errors[:email], "has already been taken")
   end
+
+  # tests that the new user is saved:
+  test "should create new unconfirmed guest user" do
+    @form.validate(email: "name@domain.com", password: "password")
+
+    assert(@form.save)
+    assert_not(@user.confirmed?)
+  end
 end
 
 # rails test test/forms/register_form_test.rb
