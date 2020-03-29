@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'reform'
 gem 'reform-rails'
-
+gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
